@@ -19,9 +19,9 @@
 
     <div class="container" id="mainCard">
         <img id="bear" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpNUMvULn59/giphy.gif">
-        <h1 id="question">เป็นแฟนกับเรานะ? ❤️</h1>
+        <h1 id="question">เป็นเด็กดื้อไหม❤️</h1>
         <div class="btn-group">
-            <button id="yesBtn" onclick="success()">ตกลง</button>
+            <button id="yesBtn" onclick="success()">ใช่</button>
             <button id="noBtn" onmouseover="moveNo()">ไม่</button>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <script>
         let fontSize = 18;
         let padding = 12;
-        const messages = ["แน่ใจนะ?", "คิดดูอีกที...", "ยอมเถอะนะ", "จะหนีไปไหน!", "กดตกลงเถอะ!"];
+        const messages = ["แน่ใจนะ?", "คิดดูอีกที...", "ยอมเถอะ", "ทำไมดื้อจัง!", "เด็กดื้อ!"];
         let msgIndex = 0;
 
         function moveNo() {
@@ -58,10 +58,11 @@
         function success() {
             document.getElementById('mainCard').innerHTML = `
                 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiCiNR/giphy.gif">
-                <h1 style="font-size: 30px;">เย้! รักที่สุดเลยครับ ❤️</h1>
+                <h1 style="font-size: 30px;">เย้!รักเด็กดื้อที่สุดเลยย ❤️</h1>
             `;
             document.body.style.backgroundColor = "#fff";
         }
     </script>
 </body>
+
 </html>
