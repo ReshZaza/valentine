@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body { background-color: #fce4ec; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Arial', sans-serif; margin: 0; overflow: hidden; }
+        .container { text-align: center; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 85%; max-width: 400px; transition: all 0.3s; }
+        img { width: 180px; margin-bottom: 20px; }
+        h1 { color: #d81b60; font-size: 22px; margin-bottom: 25px; }
+        .btn-group { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
+        button { border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 18px; transition: all 0.2s; font-weight: bold; }
+        #yesBtn { background-color: #ff4081; color: white; z-index: 1000; }
+        #noBtn { background-color: #e0e0e0; color: #757575; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <img id="bear" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpNUMvULn59/giphy.gif">
+        <h1 id="question">เป็นแฟนกับเรานะ? ❤️</h1>
+        <div class="btn-group">
+            <button id="yesBtn" onclick="success()">ตกลง</button>
+            <button id="noBtn" onmouseover="moveNo()">ไม่</button>
+        </div>
+    </div>
+
+    <script>
+        let fontSize = 18;
+        let padding = 12;
+        const messages = ["แน่ใจนะ?", "คิดดูอีกที...", "ยอมเถอะนะ", "จะหนีไปไหน!", "กดตกลงเถอะ!"];
+        let msgIndex = 0;
+
+        function moveNo() {
+            const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+            const question = document.getElementById('question');
+            
+            // สุ่มที่อยู่ใหม่ให้ปุ่มไม่
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            noBtn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+
+            // ขยายปุ่มตกลงให้ใหญ่ขึ้นจนบังหน้าจอ
+            fontSize += 20;
+            padding += 10;
+            yesBtn.style.fontSize = fontSize + 'px';
+            yesBtn.style.padding = padding + 'px ' + (padding * 2) + 'px';
+
+            // เปลี่ยนข้อความไปเรื่อยๆ
+            if (msgIndex < messages.length) {
+                question.innerText = messages[msgIndex];
+                msgIndex++;
+            }
+        }
+
+        function success() {
+            document.getElementById('mainCard').innerHTML = `
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiCiNR/giphy.gif">
+                <h1 style="font-size: 30px;">เย้! รักที่สุดเลยครับ ❤️</h1>
+            `;
+            document.body.style.backgroundColor = "#fff";
+        }
+    </script>
+</body>
+</html>
